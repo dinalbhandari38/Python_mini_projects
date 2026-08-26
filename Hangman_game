@@ -1,5 +1,5 @@
+from word_list import words
 import random
-words=("apple","mango","pear","banana","papaya","avacado")
 hangman_art={
              0:("   ",
                 "   ",
