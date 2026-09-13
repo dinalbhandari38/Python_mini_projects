@@ -1,4 +1,4 @@
 # Python-mini_projects
 Understanding python
 <br>
-hiiii everyone
+just focusing on improving python
