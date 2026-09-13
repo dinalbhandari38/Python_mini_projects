@@ -1,0 +1,79 @@
+student_no = int(input("Enter no of students: "))
+students = 1
+student_data = []
+
+while students <= student_no:
+    print("-------------------------------------------------------")
+
+    student_name = input("Enter name of student: ")
+    english_mks = int(input("Enter English marks: "))
+    math_mks = int(input("Enter Math marks: "))
+    history_mks = int(input("Enter History marks: "))
+
+    total = english_mks + math_mks + history_mks
+    average = total / 3
+
+    if average >= 40:
+        status = "Pass"
+    else:
+        status = "Fail"
+
+    student = {
+        "name": student_name,
+        "english": english_mks,
+        "math": math_mks,
+        "history": history_mks,
+        "total": total,
+        "average": average,
+        "status": status
+    }
+
+    student_data.append(student)
+
+    students += 1
+
+print("\n================ STUDENT RESULTS ================\n")
+
+for student in student_data:
+    print("Name:", student["name"])
+    print("English:", student["english"])
+    print("Math:", student["math"])
+    print("History:", student["history"])
+    print("Total:", student["total"])
+    print("Average:", round(student["average"], 2))
+    print("Status:", student["status"])
+    print("-------------------------------------------------------")
+# Class average
+total_marks = 0
+for student in student_data:
+    total_marks += student["total"]
+class_average = total_marks / (student_no * 3)
+print("Class Average:", round(class_average, 2))
+# Highest scorer
+highest_student = student_data[0]
+for student in student_data:
+    if student["total"] > highest_student["total"]:
+        highest_student = student
+print("Highest Scorer:", highest_student["name"])
+print("Highest Total:", highest_student["total"])
+# Lowest scorer
+lowest_student = student_data[0]
+for student in student_data:
+    if student["total"] < lowest_student["total"]:
+        lowest_student = student
+print("Lowest Scorer:", lowest_student["name"])
+print("Lowest Total:", lowest_student["total"])
+# Count Pass and Fail
+passed = 0
+failed = 0
+for student in student_data:
+
+    if student["status"] == "Pass":
+        passed += 1
+    else:
+        failed += 1
+print("Number of Students Passed:", passed)
+print("Number of Students Failed:", failed)
+
+
+
